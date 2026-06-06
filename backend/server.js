@@ -10,6 +10,7 @@ const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 
 dotenv.config();
+console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
 
 connectDB();
 
