@@ -4,7 +4,7 @@ async function getProducts() {
     console.log("Fetching products...");
 
     const response = await fetch(
-      "http://localhost:5000/api/products"
+      "https://ecommerce-backend-wrtf.onrender.com/api/products"
     );
 
     console.log("Response received:", response);

@@ -4,7 +4,7 @@ async function getProduct() {
     localStorage.getItem("productId");
 
   const response = await fetch(
-    `http://127.0.0.1:5000/api/products/${productId}`
+    `https://ecommerce-backend-wrtf.onrender.com/api/products/${productId}`
   );
 
   const product = await response.json();

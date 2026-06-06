@@ -4,7 +4,7 @@ async function loginUser() {
   const password = document.getElementById("password").value;
 
   const response = await fetch(
-    "http://localhost:5000/api/users/login",
+    "https://ecommerce-backend-wrtf.onrender.com/api/users/login",
     {
       method: "POST",
       headers: {
