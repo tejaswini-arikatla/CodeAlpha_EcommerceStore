@@ -54,7 +54,7 @@ function removeItem(index) {
   loadCart();
 }
 
-async function placeOrder() {
+function placeOrder() {
 
   const cart =
     JSON.parse(
@@ -62,27 +62,9 @@ async function placeOrder() {
     ) || [];
 
   if (cart.length === 0) {
-
     alert("Cart is Empty");
-
     return;
   }
-
-  localStorage.setItem(
-    "orderItems",
-    JSON.stringify(cart)
-  );
-
-  alert("Order Placed");
-
-  localStorage.removeItem("cart");
-
-  window.location.href =
-    "order.html";
-}
-
-loadCart();
-function placeOrder() {
 
   const address =
     document.getElementById("address").value;
@@ -93,12 +75,21 @@ function placeOrder() {
   }
 
   localStorage.setItem(
+    "orderItems",
+    JSON.stringify(cart)
+  );
+
+  localStorage.setItem(
     "deliveryAddress",
     address
   );
 
   alert("Order Placed Successfully");
 
+  localStorage.removeItem("cart");
+
   window.location.href =
     "order.html";
 }
+
+loadCart();
