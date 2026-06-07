@@ -6,7 +6,9 @@ const router = express.Router();
 
 // ADD PRODUCT
 router.post("/", async (req, res) => {
+    console.log("BODY RECEIVED:", req.body);
   try {
+
     const {
       name,
       price,
