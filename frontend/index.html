@@ -13,10 +13,14 @@
   <h2>E-Shop</h2>
 
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="cart.html">Cart</a>
-    <a href="login.html">Login</a>
-  </div>
+  <a href="index.html">Home</a>
+  <a href="cart.html">Cart</a>
+  <a href="login.html">Login</a>
+
+  <button onclick="logout()">
+    Logout
+  </button>
+</div>
 
 </div>
 
@@ -24,9 +28,11 @@
   Latest Products
 </h1>
 
-<div id="products" class="product-container"></div>
+<div id="products"
+ class="product-container">
+</div>
 
 <script src="./js/products.js"></script>
-
+<script src="./js/logout.js"></script>
 </body>
 </html>
