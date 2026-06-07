@@ -8,6 +8,8 @@
 
 <body>
 
+<script src="./js/auth.js"></script>
+
 <div class="navbar">
   <h2>E-Shop</h2>
 </div>
@@ -16,19 +18,33 @@
   Shopping Cart
 </h1>
 
-<div id="cart-items" class="product-container">
+<div id="cart-items"
+     class="product-container">
 </div>
 
-<h2 id="total" class="cart-total">
+<h2 id="total"
+    class="cart-total">
 </h2>
 
-<center>
-<button onclick="placeOrder()">
-  Place Order
-</button>
-</center>
+<div style="text-align:center; margin:20px;">
 
-<script src="./js/auth.js"></script>
+  <h3>Delivery Address</h3>
+
+  <textarea
+    id="address"
+    rows="5"
+    cols="50"
+    placeholder="Enter Delivery Address"
+  ></textarea>
+
+  <br><br>
+
+  <button onclick="placeOrder()">
+    Place Order
+  </button>
+
+</div>
+
 <script src="./js/cart.js"></script>
 
 </body>

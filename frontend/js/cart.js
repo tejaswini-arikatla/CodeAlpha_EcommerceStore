@@ -82,3 +82,23 @@ async function placeOrder() {
 }
 
 loadCart();
+function placeOrder() {
+
+  const address =
+    document.getElementById("address").value;
+
+  if (!address) {
+    alert("Please enter delivery address");
+    return;
+  }
+
+  localStorage.setItem(
+    "deliveryAddress",
+    address
+  );
+
+  alert("Order Placed Successfully");
+
+  window.location.href =
+    "order.html";
+}
