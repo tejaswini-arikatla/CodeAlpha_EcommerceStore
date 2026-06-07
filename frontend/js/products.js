@@ -23,11 +23,19 @@ async function getProducts() {
       productsDiv.innerHTML += `
         <div class="product-card">
 
+          <img
+            src="${product.image}"
+            alt="${product.name}"
+            class="product-image"
+          >
+
           <h3>${product.name}</h3>
 
-          <p>₹${product.price}</p>
+          <p><strong>₹${product.price}</strong></p>
 
           <p>${product.category}</p>
+
+          <p>${product.description}</p>
 
           <button onclick="viewProduct('${product._id}')">
             View Product
