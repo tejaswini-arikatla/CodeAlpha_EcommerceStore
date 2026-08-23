@@ -6,11 +6,6 @@ const Product =
 const router =
   express.Router();
 
-
-// ========================================
-// ADD PRODUCT
-// ========================================
-
 router.post(
   "/",
   async (req, res) => {
@@ -69,11 +64,6 @@ router.post(
   }
 );
 
-
-// ========================================
-// GET ALL PRODUCTS
-// ========================================
-
 router.get(
   "/",
   async (req, res) => {
@@ -102,11 +92,6 @@ router.get(
 
   }
 );
-
-
-// ========================================
-// GET SINGLE PRODUCT
-// ========================================
 
 router.get(
   "/:id",
@@ -151,11 +136,6 @@ router.get(
   }
 );
 
-
-// ========================================
-// EXPORT ROUTER
-// ========================================
-
 router.delete("/:id", async (req, res) => {
   try {
 
@@ -182,6 +162,72 @@ router.delete("/:id", async (req, res) => {
     });
 
   }
+});
+
+router.put("/:id", async (req, res) => {
+
+  try {
+
+    const {
+      name,
+      price,
+      image,
+      description,
+      category,
+      countInStock
+    } = req.body;
+
+
+    const product =
+      await Product.findByIdAndUpdate(
+
+        req.params.id,
+
+        {
+          name,
+          price,
+          image,
+          description,
+          category,
+          countInStock
+        },
+
+        {
+          new: true,
+          runValidators: true
+        }
+
+      );
+
+
+    if (!product) {
+
+      return res.status(404).json({
+        message: "Product not found"
+      });
+
+    }
+
+
+    res.json({
+      message: "Product updated successfully",
+      product
+    });
+
+
+  } catch (error) {
+
+    console.error(
+      "UPDATE PRODUCT ERROR:",
+      error
+    );
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+
 });
 
 module.exports = router;
