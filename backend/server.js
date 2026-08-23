@@ -1,39 +1,97 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
+const express =
+  require("express");
 
-const connectDB = require("./config/db");
+const dotenv =
+  require("dotenv");
 
-const productRoutes = require("./routes/productRoutes");
+const cors =
+  require("cors");
+
+const connectDB =
+  require("./config/db");
+
+const productRoutes =
+  require("./routes/productRoutes");
+
 
 dotenv.config();
 
+
+// ========================================
+// DATABASE
+// ========================================
+
 connectDB();
 
-const app = express();
 
-// MUST EXIST
-app.use(express.json());
+// ========================================
+// EXPRESS
+// ========================================
 
-// OPTIONAL BUT RECOMMENDED
-app.use(express.urlencoded({ extended: true }));
+const app =
+  express();
+
+
+// ========================================
+// MIDDLEWARE
+// ========================================
 
 app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+  cors()
+);
+
+app.use(
+  express.json()
+);
+
+app.use(
+  express.urlencoded({
+    extended: true
   })
 );
 
-app.use("/api/products", productRoutes);
 
-app.get("/", (req, res) => {
-  res.send("API Running");
-});
+// ========================================
+// ROUTES
+// ========================================
 
-const PORT = process.env.PORT || 5000;
+app.use(
+  "/api/products",
+  productRoutes
+);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+// ========================================
+// HOME
+// ========================================
+
+app.get(
+  "/",
+  (req, res) => {
+
+    res.send(
+      "API Running"
+    );
+
+  }
+);
+
+
+// ========================================
+// PORT
+// ========================================
+
+const PORT =
+  process.env.PORT || 5000;
+
+
+app.listen(
+  PORT,
+  () => {
+
+    console.log(
+      `Server running on port ${PORT}`
+    );
+
+  }
+);
