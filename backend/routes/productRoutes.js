@@ -156,10 +156,6 @@ router.get(
 // EXPORT ROUTER
 // ========================================
 
-// ========================================
-// DELETE PRODUCT
-// ========================================
-
 router.delete("/:id", async (req, res) => {
   try {
 
@@ -188,5 +184,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-module.exports =
-  router;
+module.exports = router;
